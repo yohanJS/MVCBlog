@@ -13,9 +13,12 @@ namespace MVCBlog.Models
         [Required]
         public string? Author { get; set; }
         public string? Content { get; set; }
-
+        [Required]
+        public string? Category { get; set; }
+        
         //The DataType attribute on CreatedDate specifies the type of the data (Date). With this attribute:
         [DataType(DataType.Date)]
+        [Display(Name = "Created Date")]
         public DateTime CreatedDate { get; set;} = DateTime.Now;
 
     }

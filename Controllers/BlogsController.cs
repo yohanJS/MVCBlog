@@ -38,14 +38,14 @@ namespace MVCBlog.Controllers
         {
             if (id == null || _context.Blog == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
             var blog = await _context.Blog
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (blog == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
             return View(blog);
@@ -62,7 +62,7 @@ namespace MVCBlog.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,Author,Content,CreatedDate")] Blog blog)
+        public async Task<IActionResult> Create([Bind("Id,Title,Description,Author,Content,CreatedDate, Category")] Blog blog)
         {
             if (ModelState.IsValid)
             {
@@ -78,13 +78,13 @@ namespace MVCBlog.Controllers
         {
             if (id == null || _context.Blog == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
             var blog = await _context.Blog.FindAsync(id);
             if (blog == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
             return View(blog);
         }
@@ -94,11 +94,11 @@ namespace MVCBlog.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,Author,Content,CreatedDate")] Blog blog)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,Author,Content,CreatedDate,Category,return RedirectToAction(nameof(Index));")] Blog blog)
         {
             if (id != blog.Id)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
             if (ModelState.IsValid)
@@ -112,7 +112,7 @@ namespace MVCBlog.Controllers
                 {
                     if (!BlogExists(blog.Id))
                     {
-                        return NotFound();
+                        return RedirectToAction(nameof(Index));
                     }
                     else
                     {
@@ -129,14 +129,14 @@ namespace MVCBlog.Controllers
         {
             if (id == null || _context.Blog == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
             var blog = await _context.Blog
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (blog == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
 
             return View(blog);
