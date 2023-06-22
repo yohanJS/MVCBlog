@@ -1,6 +1,20 @@
 ﻿@model IEnumerable<MVCBlog.Models.Blog>
 
+
+
 <div class="container">
+    @*Search Button*@
+    <div class="row">
+        <div class="col-12 mb-2">
+            <form asp-controller="Blogs" asp-action="AllBlogs">
+                <p class="lead m-0">Category:</p>
+                <input class="input-group-text mb-2" type="text" name="SearchString" />
+                <input class="btn btn-primary" type="submit" value="Filter" />
+                <input class="btn btn-danger" type="submit" value="Clear" />
+            </form>
+        </div>
+    </div>
+    @*All Blogs*@
     <div class="row">
         @foreach (var item in Model)
         {
@@ -11,7 +25,7 @@
                         <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
                         <p class="card-text">Author: @Html.DisplayFor(modelItem => item.Author)</p>
                         <p class="card-text">Created Date: @Html.DisplayFor(modelItem => item.CreatedDate)</p>
-                        <p class="card-text">Created Date: @Html.DisplayFor(modelItem => item.Category)</p>
+                        <p class="card-text">Category: @Html.DisplayFor(modelItem => item.Category)</p>
                     </div>
                     <div class="card-footer">
                         <div class="d-grid gap-2">

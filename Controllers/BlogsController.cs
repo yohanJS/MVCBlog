@@ -21,16 +21,28 @@ namespace MVCBlog.Controllers
         }
 
         // GET: Blogs
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-              return _context.Blog != null ? 
-                          View(await _context.Blog.ToListAsync()) :
-                          Problem("Entity set 'MVCBlogContext.Blog'  is null.");
+            return View();  
         }
 
-        public Task<IActionResult> AllBlogs()
+        public async Task<IActionResult> AllBlogs(string searchString)
         {
-            return Task.FromResult<IActionResult>(View());
+            if (_context.Blog == null)
+            {
+                return Problem("Entity set 'MvcMovieContext.Movie'  is null.");
+            }
+            // creates a LINQ query to select the movies:
+            var blogs = from blog in _context.Blog
+                        select blog;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                blogs = blogs.Where(s => s.Category!.Contains(searchString));
+            }
+
+            return View(await blogs.ToListAsync());
+
         }
 
         // GET: Blogs/Details/5
