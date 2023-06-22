@@ -6,12 +6,23 @@
     @*Search Button*@
     <div class="row">
         <div class="col-12 mb-2">
-            <form asp-controller="Blogs" asp-action="AllBlogs">
+            <form asp-controller="Blogs" asp-action="AllBlogs" method="get">
                 <p class="lead m-0">Category:</p>
                 <input class="input-group-text mb-2" type="text" name="SearchString" />
                 <input class="btn btn-primary" type="submit" value="Filter" />
                 <input class="btn btn-danger" type="submit" value="Clear" />
             </form>
+        </div>
+    </div>
+    @*Share Ide Button*@
+    <div class="row">
+        <div class="col-12">
+            <div class="py-5 text-center">
+                <h3>Do not wait to:</h3>
+                <p>
+                    <a asp-action="Create" class="btn btn-primary">Share your idea</a>
+                </p>
+            </div>
         </div>
     </div>
     @*All Blogs*@

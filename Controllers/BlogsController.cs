@@ -28,6 +28,7 @@ namespace MVCBlog.Controllers
 
         public async Task<IActionResult> AllBlogs(string searchString)
         {
+
             if (_context.Blog == null)
             {
                 return Problem("Entity set 'MvcMovieContext.Movie'  is null.");
@@ -80,7 +81,7 @@ namespace MVCBlog.Controllers
             {
                 _context.Add(blog);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(AllBlogs));
             }
             return View(blog);
         }
