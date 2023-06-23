@@ -1,23 +1,56 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
+/* Styling for the title */
+.landing-title {
+    font-size: 3.5rem;
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+/* Bootstrap 5 classes */
+.landing-paragraph {
+    font-size: 1rem;
+}
+/* Custom CSS for the button */
+.landing-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #ff5e00;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.landing-button:hover {
+    background-color: #ff8400;
+}
 .card {
     transition: transform 0.3s;
 }
@@ -25,6 +58,7 @@ body {
 .card:hover {
     transform: translateY(-5px);
 }
+
 .blog-container {
     background-color: #f8f9fa;
     border-radius: 10px;
