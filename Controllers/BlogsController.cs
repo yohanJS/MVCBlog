@@ -107,7 +107,7 @@ namespace MVCBlog.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,Author,Content,CreatedDate,Category,return RedirectToAction(nameof(Index));")] Blog blog)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,Author,Content,CreatedDate,Category")] Blog blog)
         {
             if (id != blog.Id)
             {
